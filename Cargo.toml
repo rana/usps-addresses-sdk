@@ -1,10 +1,8 @@
 [package]
 name = "usps-addresses-sdk"
 version = "3.0.2"
-authors = ["APISupport@usps.gov"]
 description = "The Addresses API validates and corrects address information, eliminating errors, improving package delivery service and package pricing. This suite of APIs provides different utilities for addressing components. The ZIP Code&#8482; lookup finds valid ZIP Code&#8482; for a City and State.  The City/State lookup provides the valid cities and states for a provided ZIP Code&#8482;.  The Address Standardization API validates and standardizes USPS&#174; domestic addresses, city and state names, and ZIP Code&#8482; in accordance with USPS&#174; addressing standards.  The USPS&#174; address standard includes the ZIP + 4&#174;, signifying a USPS&#174; delivery point, given a street address, a city and a state. "
-# Override this license by providing a License Object in the OpenAPI.
-license = "Unlicense"
+license = "MIT"
 edition = "2021"
 
 [dependencies]
@@ -17,3 +15,7 @@ reqwest = { version = "^0.12", default-features = false, features = [
     "multipart",
     "rustls-tls",
 ] }
+
+[dev-dependencies]
+tokio = { version = "1.37.0", features = ["full"] }
+usps-oauth-sdk = { git = "https://github.com/rana/usps-oauth-sdk.git" }
