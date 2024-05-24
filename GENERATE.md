@@ -5,6 +5,7 @@ See [USPS Addresses API documentation](https://developer.usps.com/api/93).
 See [OpenAPI Generator Rust documentation](https://openapi-generator.tech/docs/generators/rust/).
 
 Step 1. Update Open API yaml if newly downloaded.
+- Revise enum descriptions for proper enum definitions. Enum definitions were preventing SDK generation.
 ```yaml
     DPVConfirmation:
       type: string
