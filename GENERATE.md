@@ -6,8 +6,6 @@ See [OpenAPI Generator Rust documentation](https://openapi-generator.tech/docs/g
 
 Step 1. Update Open API yaml if newly downloaded.
 ```yaml
-components:
-  schemas:
     DPVConfirmation:
       type: string
       description: >
