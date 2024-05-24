@@ -77,6 +77,16 @@ curl -O https://developer.usps.com/sites/default/files/apidoc_specs/US_Postal_Se
 openapi-generator-cli generate -i US_Postal_Service-addresses-3.0.2-resolved_1.yaml -g rust --additional-properties=packageName=usps-addresses-sdk,preferUnsignedInt=true
 ```
 
+Step N. Comment out duplicate generated code.
+```rust
+    // if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+    //     local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    // };
+    if let Some(ref local_var_token) = local_var_configuration.oauth_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+```
+
 Step 2. Manually update Cargo.toml.
 - `reqwest`
     - Add `default-features = false`
