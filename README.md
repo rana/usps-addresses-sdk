@@ -1,4 +1,8 @@
-# Rust API client for usps-addresses-sdk
+# USPS Addresses SDK in Rust
+
+Based on the USPS OpenAPI specification. 
+
+See [USPS Addresses API documentation](https://developer.usps.com/api/93).
 
 The Addresses API validates and corrects address information, eliminating errors, improving package delivery service and package pricing. This suite of APIs provides different utilities for addressing components. The ZIP Code&#8482; lookup finds valid ZIP Code&#8482; for a City and State.  The City/State lookup provides the valid cities and states for a provided ZIP Code&#8482;.  The Address Standardization API validates and standardizes USPS&#174; domestic addresses, city and state names, and ZIP Code&#8482; in accordance with USPS&#174; addressing standards.  The USPS&#174; address standard includes the ZIP + 4&#174;, signifying a USPS&#174; delivery point, given a street address, a city and a state. 
 

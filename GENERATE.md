@@ -1,4 +1,4 @@
-# USPS OAuth SDK in Rust
+# USPS Addresses SDK in Rust
 
 Based on the USPS OpenAPI specification. 
 
