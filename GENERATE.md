@@ -1,7 +1,5 @@
 # USPS Addresses SDK in Rust
 
-Based on the USPS OpenAPI specification. 
-
 See [USPS Addresses API documentation](https://developer.usps.com/api/93).
 
 See [OpenAPI Generator Rust documentation](https://openapi-generator.tech/docs/generators/rust/).
