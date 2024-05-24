@@ -20,19 +20,19 @@ pub struct AddressAdditionalInfo {
     /// This is the carrier route code (values unspecified).
     #[serde(rename = "carrierRoute", skip_serializing_if = "Option::is_none")]
     pub carrier_route: Option<String>,
-    /// The DPV Confirmation Indicator is the primary method used by the USPS&#174; to determine whether an address was considered deliverable or undeliverable.
+    /// The DPV Confirmation Indicator is the primary method used by the USPS® to determine whether an address was considered deliverable or undeliverable.  Enum values: - Y: Address was DPV confirmed for both primary and (if present) secondary numbers. - D: Address was DPV confirmed for the primary number only, and the secondary number information was missing. - S: Address was DPV confirmed for the primary number only, and the secondary number information was present but not confirmed. - N: Both primary and (if present) secondary number information failed to DPV confirm. 
     #[serde(rename = "DPVConfirmation", skip_serializing_if = "Option::is_none")]
     pub dpv_confirmation: Option<DpvConfirmation>,
-    /// Indicates if the location is a [Commercial Mail Receiving Agency (CMRA)](https://faq.usps.com/s/article/Mail-Services-at-Non-Postal-Sites-CMRA)
+    /// Indicates if the location is a [Commercial Mail Receiving Agency (CMRA)](https://faq.usps.com/s/article/Mail-Services-at-Non-Postal-Sites-CMRA). Enum values: - Y: Address was found in the CMRA table. - N: Address was not found in the CMRA table. 
     #[serde(rename = "DPVCMRA", skip_serializing_if = "Option::is_none")]
     pub dpvcmra: Option<Dpvcmra>,
-    /// Indicates whether this is a business address.
+    /// Indicates whether this is a business address. Enum values: - Y: The address is a business address. - N: The address is not a business address. 
     #[serde(rename = "business", skip_serializing_if = "Option::is_none")]
     pub business: Option<Business>,
-    /// Central Delivery is for all business office buildings, office complexes, and/or industrial/professional parks. This may include call windows, horizontal locked mail receptacles, cluster box units.
+    /// Central Delivery is for all business office buildings, office complexes, and/or industrial/professional parks. This may include call windows, horizontal locked mail receptacles, cluster box units. Enum values: - Y: The address is a central delivery point. - N: The address is not a central delivery point. 
     #[serde(rename = "centralDeliveryPoint", skip_serializing_if = "Option::is_none")]
     pub central_delivery_point: Option<CentralDeliveryPoint>,
-    /// Indicates whether the location designated by the address is occupied.
+    /// Indicates whether the location designated by the address is occupied. Enum values: - Y: The address is occupied. - N: The address is not occupied. 
     #[serde(rename = "vacant", skip_serializing_if = "Option::is_none")]
     pub vacant: Option<Vacant>,
 }
@@ -51,78 +51,78 @@ impl AddressAdditionalInfo {
         }
     }
 }
-/// The DPV Confirmation Indicator is the primary method used by the USPS&#174; to determine whether an address was considered deliverable or undeliverable.
+/// The DPV Confirmation Indicator is the primary method used by the USPS® to determine whether an address was considered deliverable or undeliverable.  Enum values: - Y: Address was DPV confirmed for both primary and (if present) secondary numbers. - D: Address was DPV confirmed for the primary number only, and the secondary number information was missing. - S: Address was DPV confirmed for the primary number only, and the secondary number information was present but not confirmed. - N: Both primary and (if present) secondary number information failed to DPV confirm. 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DpvConfirmation {
-    #[serde(rename = "Y 'Address was DPV confirmed for both primary and (if present) secondary numbers.'")]
-    YQuoteAddressWasDpvConfirmedForBothPrimaryAndLeftParenthesisIfPresentRightParenthesisSecondaryNumbersPeriodQuote,
-    #[serde(rename = "D 'Address was DPV confirmed for the primary number only, and the secondary number information was missing.'")]
-    DQuoteAddressWasDpvConfirmedForThePrimaryNumberOnlyCommaAndTheSecondaryNumberInformationWasMissingPeriodQuote,
-    #[serde(rename = "S 'Address was DPV confirmed for the primary number only, and the secondary number information was present but not confirmed.'")]
-    SQuoteAddressWasDpvConfirmedForThePrimaryNumberOnlyCommaAndTheSecondaryNumberInformationWasPresentButNotConfirmedPeriodQuote,
-    #[serde(rename = "N 'Both primary and (if present) secondary number information failed to DPV confirm.'")]
-    NQuoteBothPrimaryAndLeftParenthesisIfPresentRightParenthesisSecondaryNumberInformationFailedToDpvConfirmPeriodQuote,
+    #[serde(rename = "Y")]
+    Y,
+    #[serde(rename = "D")]
+    D,
+    #[serde(rename = "S")]
+    S,
+    #[serde(rename = "N")]
+    N,
 }
 
 impl Default for DpvConfirmation {
     fn default() -> DpvConfirmation {
-        Self::YQuoteAddressWasDpvConfirmedForBothPrimaryAndLeftParenthesisIfPresentRightParenthesisSecondaryNumbersPeriodQuote
+        Self::Y
     }
 }
-/// Indicates if the location is a [Commercial Mail Receiving Agency (CMRA)](https://faq.usps.com/s/article/Mail-Services-at-Non-Postal-Sites-CMRA)
+/// Indicates if the location is a [Commercial Mail Receiving Agency (CMRA)](https://faq.usps.com/s/article/Mail-Services-at-Non-Postal-Sites-CMRA). Enum values: - Y: Address was found in the CMRA table. - N: Address was not found in the CMRA table. 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Dpvcmra {
-    #[serde(rename = "Y 'Address was found in the CMRA table. '")]
-    YQuoteAddressWasFoundInTheCmraTablePeriodQuote,
-    #[serde(rename = "N 'Address was not found in the CMRA table.'")]
-    NQuoteAddressWasNotFoundInTheCmraTablePeriodQuote,
+    #[serde(rename = "Y")]
+    Y,
+    #[serde(rename = "N")]
+    N,
 }
 
 impl Default for Dpvcmra {
     fn default() -> Dpvcmra {
-        Self::YQuoteAddressWasFoundInTheCmraTablePeriodQuote
+        Self::Y
     }
 }
-/// Indicates whether this is a business address.
+/// Indicates whether this is a business address. Enum values: - Y: The address is a business address. - N: The address is not a business address. 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Business {
-    #[serde(rename = "Y  'The address is a business address.'")]
-    YQuoteTheAddressIsABusinessAddressPeriodQuote,
-    #[serde(rename = "N  'The address is not a business address.'")]
-    NQuoteTheAddressIsNotABusinessAddressPeriodQuote,
+    #[serde(rename = "Y")]
+    Y,
+    #[serde(rename = "N")]
+    N,
 }
 
 impl Default for Business {
     fn default() -> Business {
-        Self::YQuoteTheAddressIsABusinessAddressPeriodQuote
+        Self::Y
     }
 }
-/// Central Delivery is for all business office buildings, office complexes, and/or industrial/professional parks. This may include call windows, horizontal locked mail receptacles, cluster box units.
+/// Central Delivery is for all business office buildings, office complexes, and/or industrial/professional parks. This may include call windows, horizontal locked mail receptacles, cluster box units. Enum values: - Y: The address is a central delivery point. - N: The address is not a central delivery point. 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum CentralDeliveryPoint {
-    #[serde(rename = "Y  'The address is a central delivery point.'")]
-    YQuoteTheAddressIsACentralDeliveryPointPeriodQuote,
-    #[serde(rename = "N  'The address is not a central delivery point.'")]
-    NQuoteTheAddressIsNotACentralDeliveryPointPeriodQuote,
+    #[serde(rename = "Y")]
+    Y,
+    #[serde(rename = "N")]
+    N,
 }
 
 impl Default for CentralDeliveryPoint {
     fn default() -> CentralDeliveryPoint {
-        Self::YQuoteTheAddressIsACentralDeliveryPointPeriodQuote
+        Self::Y
     }
 }
-/// Indicates whether the location designated by the address is occupied.
+/// Indicates whether the location designated by the address is occupied. Enum values: - Y: The address is occupied. - N: The address is not occupied. 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Vacant {
-    #[serde(rename = "Y  'The address is occupied.'")]
-    YQuoteTheAddressIsOccupiedPeriodQuote,
-    #[serde(rename = "N  'The address is not occupied.'")]
-    NQuoteTheAddressIsNotOccupiedPeriodQuote,
+    #[serde(rename = "Y")]
+    Y,
+    #[serde(rename = "N")]
+    N,
 }
 
 impl Default for Vacant {
     fn default() -> Vacant {
-        Self::YQuoteTheAddressIsOccupiedPeriodQuote
+        Self::Y
     }
 }
 

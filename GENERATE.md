@@ -4,6 +4,70 @@ See [USPS Addresses API documentation](https://developer.usps.com/api/93).
 
 See [OpenAPI Generator Rust documentation](https://openapi-generator.tech/docs/generators/rust/).
 
+Step 1. Update Open API yaml if newly downloaded.
+```yaml
+components:
+  schemas:
+    DPVConfirmation:
+      type: string
+      description: >
+        The DPV Confirmation Indicator is the primary method used by the USPS® to determine whether an address was considered deliverable or undeliverable. 
+
+        Enum values:
+        - Y: Address was DPV confirmed for both primary and (if present) secondary numbers.
+        - D: Address was DPV confirmed for the primary number only, and the secondary number information was missing.
+        - S: Address was DPV confirmed for the primary number only, and the secondary number information was present but not confirmed.
+        - N: Both primary and (if present) secondary number information failed to DPV confirm.
+      enum:
+        - Y
+        - D
+        - S
+        - N
+    DPVCMRA:
+      type: string
+      description: >
+        Indicates if the location is a [Commercial Mail Receiving Agency (CMRA)](https://faq.usps.com/s/article/Mail-Services-at-Non-Postal-Sites-CMRA).
+
+        Enum values:
+        - Y: Address was found in the CMRA table.
+        - N: Address was not found in the CMRA table.
+      enum:
+        - Y
+        - N
+    business:
+      type: string
+      description: >
+        Indicates whether this is a business address.
+
+        Enum values:
+        - Y: The address is a business address.
+        - N: The address is not a business address.
+      enum:
+        - Y
+        - N
+    centralDeliveryPoint:
+      type: string
+      description: >
+        Central Delivery is for all business office buildings, office complexes, and/or industrial/professional parks. This may include call windows, horizontal locked mail receptacles, cluster box units.
+
+        Enum values:
+        - Y: The address is a central delivery point.
+        - N: The address is not a central delivery point.
+      enum:
+        - Y
+        - N
+    vacant:
+      type: string
+      description: >
+        Indicates whether the location designated by the address is occupied.
+
+        Enum values:
+        - Y: The address is occupied.
+        - N: The address is not occupied.
+      enum:
+        - Y
+        - N
+```
 
 Step 1. Generate SDK.
 ```sh``
